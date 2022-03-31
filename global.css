@@ -4,6 +4,7 @@ body {
   overflow: hidden;
   transition: 1s;
   margin: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 html {
