@@ -117,7 +117,7 @@ const page4 = {
   </div>
 </div>
 <!---------------->
-<p class="page4text">А ще я знаю що ти любиш котів, так що тут просто коти :3</p>
+<p class="page4text">А ще я знаю що ти любиш котiв, так що тут просто коти :3</p>
 </div>`,
   init: function (body) {
     body.className = "page4body";
