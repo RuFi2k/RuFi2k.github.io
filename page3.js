@@ -170,7 +170,7 @@ V117.8z" />
     </g>
   </g>
 </svg>
-<p class="page3text">Летіти до мрій, якими б амбіційними вони не були</p>
+<p class="page3text">Летiти до мрiй, якими б амбiцiйними вони не були</p>
 </div>`,
   init: function (body) {
     body.className = "page3body";
