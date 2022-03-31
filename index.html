@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greetings!</title>
+  <link rel="stylesheet" href="cake.css">
+  <link rel="stylesheet" href="cats.css">
+  <link rel="stylesheet" href="spaceman.css">
+  <link rel="stylesheet" href="beer.css">
+  <link rel="stylesheet" href="traveler.css">
+  <link rel="stylesheet" href="global.css">
+  <script src="scroll.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
+  <script src="page1.js"></script>
+  <script src="page2.js"></script>
+  <script src="page3.js"></script>
+  <script src="page4.js"></script>
+  <script src="page5.js"></script>
+  <script>
+    let currentpage = 0;
+    function getPageByNumber(num){
+      switch(num){
+        case 1:
+          return page1;
+        case 2:
+          return page2;
+        case 3:
+          return page3;
+        case 4:
+          return page4;
+        case 5:
+          return page5;
+        default:
+          return ''
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.querySelector('body')
+
+      let x = null, y = null
+
+      function handleTouchStart(e) {
+        const first = e.touches[0]
+
+        y = first.clientY
+      }
+
+      function handleTouchMove(e) {
+        if(!y) {
+          return false;
+        }
+        let newY = e.touches[0].clientY
+
+        if((newY - y) > 0) {
+          scrollEvent({ wheelDeltaY: 1 })
+        } else {
+          scrollEvent({ wheelDeltaY: -1 })
+        }
+      }
+
+      function scrollEvent(e) {
+        document.removeEventListener('wheel', scrollEvent)
+        document.removeEventListener('touchstart', handleTouchStart)
+        document.removeEventListener('touchmove', handleTouchMove)
+        if(e.wheelDeltaY > 0) {
+          if(--currentpage < 1){
+            currentpage = 1
+          }
+          getPageByNumber(currentpage).init(body)
+        } else{
+          if(++currentpage > 5){
+            currentpage = 5
+          }
+          getPageByNumber(currentpage).init(body)
+        }
+        setTimeout(() => {
+          document.addEventListener('wheel', scrollEvent)
+          document.addEventListener('touchstart', handleTouchStart)
+          document.addEventListener('touchmove', handleTouchMove)
+        }, 2000)
+      }
+      document.addEventListener('wheel', scrollEvent)
+      document.addEventListener('touchstart', handleTouchStart)
+      document.addEventListener('touchmove', handleTouchMove)
+      scrollEvent({ wheelDeltaY: -1 })
+    })
+  </script>
+</head>
+<body>
+</body>
+</html>

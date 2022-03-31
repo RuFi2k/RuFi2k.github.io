@@ -1,0 +1,68 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: 1s;
+  margin: 0;
+}
+
+html {
+  background-color: #222222;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.page1body {
+  background-color: #b3b3b3;
+}
+
+.page2body {
+  background-color: #ff9c08;
+}
+
+.page3body {
+  background-color: #1d1d1d;
+}
+
+.page4body {
+  background-color: #222222;
+}
+
+.page5body {
+  background-color: #ee9ca7;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: cursive;
+  color: #fff;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.scrolltext {
+  margin: 0;
+}
+
+#chevron-arrow {
+  display: inline-block;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 1600px) {
+  .scroll {
+    font-size: 24px;
+  }
+}
